@@ -12,18 +12,39 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+  # state management tool
+  get: ^4.6.6
+  # date formater
+  intl: ^0.19.0
+  # local storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  # custom google fonts 
+  google_fonts: ^6.2.1
+  # table calendar
+  table_calendar: ^3.1.2
+  # dart add-on
+  uuid: ^4.4.2
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^3.0.0
+  # add app icon
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/applogo.png
   #   - images/a_dot_ham.jpeg
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/applogo.png"
+  min_sdk_android: 21

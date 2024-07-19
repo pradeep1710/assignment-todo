@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todo/core/screens/home_screen.dart';
 
-void main() {
-  runApp(const App());
+import './core/configs/appthemes.dart';
+import './core/services/controller_service.dart';
+import './core/services/storage_service.dart';
+import './core/configs/approutes.dart';
+
+void main() async {
+  // INITIALISE LOCALSTORAGE
+  await Hive.initFlutter();
+  await StorageService.instance.init();
+
+  // RUN APP
+  runApp(const MyApp());
 }
 
-class App extends StatelessWidget {
-  const App({super.key});
+/// JPLoft Todo App
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GetMaterialApp(
+      title: "Todo",
+      theme: AppThemes.light,
+      darkTheme: AppThemes.dark,
+      debugShowCheckedModeBanner: false,
+      onInit: () => ControllerService.init(),
+      onGenerateRoute: (settings) => AppRoutes.generatedRoutes(settings),
+      home: const HomeScreen(),
+    );
   }
 }
