@@ -77,13 +77,17 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
             ),
             Expanded(child: Obx(() {
+              final todayDate = DateTime.now();
               final filteredList = todoController.filterCompletedTask();
               final pendingTaskList = filteredList.$1;
               final completedTaskList = filteredList.$2;
               if (pendingTaskList.isEmpty && completedTaskList.isEmpty) {
                 final currentDate = todoController.currentDate.value;
                 return Center(
-                  child: (currentDate.isBefore(DateTime.now()))
+                  child: (DateTime(currentDate.year, currentDate.month,
+                              currentDate.day, 1)
+                          .isBefore(DateTime(
+                              todayDate.year, todayDate.month, todayDate.day)))
                       ? Text(
                           "No Task was created on ${DateFormat("dd MMM yyyy").format(currentDate)}",
                           textAlign: TextAlign.center,
@@ -135,8 +139,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: Obx(() {
+        final currentDate = todoController.currentDate.value;
+        final todayDate = DateTime.now();
         return AnimatedScale(
-          scale: (todoController.currentDate.value.isBefore(DateTime.now()))
+          scale: (DateTime(
+                      currentDate.year, currentDate.month, currentDate.day, 1)
+                  .isBefore(
+                      DateTime(todayDate.year, todayDate.month, todayDate.day)))
               ? 0
               : 1,
           duration: const Duration(milliseconds: 200),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo/core/models/task_model.dart';
-import 'package:todo/core/screens/add_task_screen.dart';
 
+import '../models/task_model.dart';
+import '../screens/add_task_screen.dart';
 import '../screens/home_screen.dart';
 
 class AppRoutes {

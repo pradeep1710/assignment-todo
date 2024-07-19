@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo/core/utils/kborder.dart';
 
+import '../../utils/kborder.dart';
 import '../../utils/kpadding.dart';
 
 class PageSection extends StatelessWidget {

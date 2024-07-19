@@ -12,6 +12,7 @@ import '../services/storage_service.dart';
 class TodoController extends GetxController {
   // DEPENDENCIES
   final storage = StorageService.instance;
+
   // LISTENABLE
   final taskList = Rx<List<TaskModel>>([]);
 

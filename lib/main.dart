@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todo/core/screens/home_screen.dart';
 
+import './core/configs/approutes.dart';
 import './core/configs/appthemes.dart';
 import './core/services/controller_service.dart';
 import './core/services/storage_service.dart';
-import './core/configs/approutes.dart';
+import './core/screens/home_screen.dart';
 
 void main() async {
   // INITIALISE LOCALSTORAGE
